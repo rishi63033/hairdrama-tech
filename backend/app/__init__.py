@@ -17,13 +17,14 @@ def create_app():
     # make sure this is set in .env or Railway env vars before going live
     app.config["SECRET_KEY"] = os.getenv("SECRET_KEY", "fallback-dev-secret")
 
-    # CORS setup - had to add both localhost and the Vercel URL here
-    # otherwise the frontend kept getting blocked in production
+    # CORS setup
+    # Using regex to automatically allow any Vercel preview or production URL
+    # plus whatever is set in FRONTEND_URL
     CORS(
         app,
         origins=[
             os.getenv("FRONTEND_URL", "http://localhost:3000"),
-            "https://hairdrama-tech.vercel.app",  # Update with your Vercel URL
+            r"https://.*\.vercel\.app",
         ],
         supports_credentials=True,
         allow_headers=["Content-Type", "Authorization"],
