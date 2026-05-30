@@ -1,0 +1,23 @@
+# Flask + core
+flask==3.0.3
+flask-cors==4.0.1
+
+# Database
+psycopg2-binary==2.9.9
+
+# Google OAuth token verification
+google-auth==2.29.0
+google-auth-oauthlib==1.2.0
+requests==2.32.3
+
+# JWT for session tokens
+PyJWT==2.8.0
+
+# Environment variables
+python-dotenv==1.0.1
+
+# Email
+# smtplib is built-in to Python — no extra package needed
+
+# Production WSGI server
+gunicorn==22.0.0
